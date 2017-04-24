@@ -6,6 +6,7 @@ import org.datacontract.schemas._2004._07.openlm_server.LicenseServerHostDetails
 import org.datacontract.schemas._2004._07.openlm_server.LicenseServerStatistics;
 import org.datacontract.schemas._2004._07.openlm_server_services.GetLicenseServersRequest;
 import org.datacontract.schemas._2004._07.openlm_server_services.LicenseServersResponse;
+import org.datacontract.schemas._2004._07.openlm_server_services.ObjectFactory;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBElement;
@@ -42,7 +43,8 @@ public class GetLicenseServers {
     }
 
     private GetLicenseServersRequest prepareRequest() {
-        GetLicenseServersRequest request = new GetLicenseServersRequest();
+        ObjectFactory objectFactory = new ObjectFactory();
+        GetLicenseServersRequest request = objectFactory.createGetLicenseServersRequest();
         request.setIncludeDeleted(true);
         request.setIncludeDisabled(true);
         return request;
